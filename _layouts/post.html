@@ -1,11 +1,33 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<style>
+    .post-header{
+        position: relative;
+        
+        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
+		
+    }
+    {% if page.header.mask %}
+      .post-header .header-mask{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background: rgba(0,0,0, {{page.header-mask}});
+      }
+    {% endif %}
+</style>
+
+
+<article class="post" >
 
   <header class="post-header">
+
+    <div class="header-mask"></div>
+    <div class="container">   </div>
+    <h2 class="h">{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}</h2>
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} 鈥� <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -13,13 +35,13 @@ layout: default
   </div>
 
 
-  <!-- 多说评论框 start -->
+
+
   <div class="ds-thread"
-       data-thread-key="请将此处替换成文章在你的站点中的ID"
+       data-thread-key="{{ page.id }}"
        data-title="{{ page.title }}"
-       data-url="请替换成文章的网址"></div>
-  <!-- 多说评论框 end -->
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+       data-url="{{site.url}}{{site.baseurl}}{{page.url}}"></div>
+
   <script type="text/javascript">
 var duoshuoQuery = {short_name:"sunlily"};
 	(function() {
@@ -31,5 +53,5 @@ var duoshuoQuery = {short_name:"sunlily"};
 		 || document.getElementsByTagName('body')[0]).appendChild(ds);
 	})();
 	</script>
-  <!-- 多说公共JS代码 end -->
+
 </article>
