@@ -1,0 +1,45 @@
+<style type="text/css">
+	.site-header{
+		background-image: url("img/home-bg.jpg");
+		height:350px;
+	}
+	.site-title{
+		color: white;
+		font-size: 80px;
+	}
+	.span1{
+		color: white;
+		
+	}
+	.wrapper{
+		padding-top: 100px;
+	}
+	.page-link:HOVER{
+		font-size: 30px;
+	}
+</style>
+
+
+<header class="site-header">
+
+
+  <div class="wrapper">
+
+    <a class="site-title" href="{{ site.baseurl }}/"><span class="span1">{{ site.title }}<span></a>
+
+    <nav class="site-nav">
+
+
+      <div class="trigger">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}"><span class="span1">{{ my_page.title }}<span></a>
+         
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+
+  </div>
+
+</header>
