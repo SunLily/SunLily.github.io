@@ -12,8 +12,13 @@
 }
 
 .wrapper-footer{
-    margin: 0px auto;
+    margin: 2em;
     text-align: center;
     color: #808080;
-}
 
+}
+.wrapper-footer a{
+    display: inline-block;
+    margin: -2em ;
+
+}
