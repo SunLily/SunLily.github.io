@@ -2,6 +2,7 @@
 layout: post
 title:  "Welcome to My Blog!"
 date:   2016-04-20 11:22:38 +0800
+header-img: "img/cover.jpg"
 catelog: true
 ---
 

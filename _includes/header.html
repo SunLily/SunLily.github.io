@@ -1,8 +1,9 @@
 <style type="text/css">
+/**
 	.site-header{
 		background-image: url("img/home-bg.jpg");
 		height:350px;
-	}
+	}*/
 	.site-title{
 		color: white;
 		font-size: 80px;
@@ -17,6 +18,19 @@
 	.page-link:HOVER{
 		font-size: 30px;
 	}
+	.site-header{
+        position: relative;
+        height:350px;
+        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
+
+    }
+    {% if page.header.mask %}
+      .post-header .header-mask{
+          width: 100%;
+          height: 100%;
+
+      }
+    {% endif %}
 </style>
 
 

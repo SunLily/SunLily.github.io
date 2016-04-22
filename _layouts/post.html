@@ -2,56 +2,44 @@
 layout: default
 ---
 <style>
-    .post-header{
-        position: relative;
-        
-        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
-		
-    }
-    {% if page.header.mask %}
-      .post-header .header-mask{
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          background: rgba(0,0,0, {{page.header-mask}});
-      }
-    {% endif %}
+
+
 </style>
-
-
-<article class="post" >
-
-  <header class="post-header">
+<header class="post-header">
 
     <div class="header-mask"></div>
-    <div class="container">   </div>
-    <h2 class="h">{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}</h2>
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} 鈥� <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+    <div class="container">
+        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+        <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b%-d, %Y" }}
+            </time>
+            {% if page.author %} � <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
+                itemprop="name">{{ page.author }}</span></span>{% endif %}
+        </p>
+    </div>
+</header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+<article class="post">
 
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
+    </div>
+    <div class="ds-thread"
+         data-thread-key="{{ page.id }}"
+         data-title="{{ page.title }}"
+         data-url="{{site.url}}{{site.baseurl}}{{page.url}}"></div>
 
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:"sunlily"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
 
-
-  <div class="ds-thread"
-       data-thread-key="{{ page.id }}"
-       data-title="{{ page.title }}"
-       data-url="{{site.url}}{{site.baseurl}}{{page.url}}"></div>
-
-  <script type="text/javascript">
-var duoshuoQuery = {short_name:"sunlily"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0]
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
+    </script>
 
 </article>
