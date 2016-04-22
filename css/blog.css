@@ -10,3 +10,9 @@
   font: normal 100% Helvetica, Arial, sans-serif;
   /* 0 on mobile, modify by Hux */
 }
+
+.wrapper{
+    margin: 0px auto;
+    text-align: center;
+    color: #808080;
+}
