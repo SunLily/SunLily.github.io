@@ -7,6 +7,6 @@
   background-size: cover;
   -o-background-size: cover;
   margin-bottom: 0px;
-
+  font: normal 100% Helvetica, Arial, sans-serif;
   /* 0 on mobile, modify by Hux */
 }
