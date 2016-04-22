@@ -30,10 +30,12 @@ social:
     url: http://github.com/jekyll
 
 
-github_username:  SunLily
+github_username: SunLily
 weibo_username: SunLily
 zhihu_username: SunLily
-twitter_username: SunLily
+facebook_username: SunLily
 
 # Build settings
 markdown: kramdown
+
+
