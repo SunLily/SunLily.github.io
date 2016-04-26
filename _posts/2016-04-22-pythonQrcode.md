@@ -12,6 +12,8 @@ header-img: "img/flower2.jpg"
  {% endhighlight %}
 <h2>生成简单的QR码</h2>
 {%highlight ruby%}
+import Image
+import qrcode
 qr = qrcode.QRcode(
     version = 2, #二维码尺寸大小
     error_correction = qrcode.constants.ERROR_CORRECT_L,#控制用于QR码纠错
@@ -26,6 +28,9 @@ img.save("test.jpg")
 <h2>生成带logoQR码</h2>
 
 {% highlight ruby %}
+import Image
+import os
+import qrcode
 def make_logo_qr(str, logo, save):
     #参数配置
     qr = qrcode.QRCode(
@@ -54,13 +59,13 @@ def make_logo_qr(str, logo, save):
              if icon_h>size_h:
                  icon_h = size_h
              icon = icon.resize((icon_w,icon_h),Image.ANTIALIAS)
-                     #计算logo在二维码图中的位置
-                     w = int((img_w-icon_w)/2)
-                     h = int((img_h-icon_h)/2)
-                     icon=icon.convert("RGBA")
-                     img.paste(icon,(w,h),icon)
-                     #保存处理后的图片
-                     img.save(save)
+             #计算logo在二维码图中的位置
+             w = int((img_w-icon_w)/2)
+             h = int((img_h-icon_h)/2)
+             icon=icon.convert("RGBA")
+             img.paste(icon,(w,h),icon)
+             #保存处理后的图片
+             img.save(save)
 {% endhighlight %}
 {%highlight ruby%}
 if __name__=="__main__":
