@@ -3,9 +3,9 @@ layout: post
 title: "使用Qrcode生成二维码"
 header-img: "img/flower2.jpg"
 ---
- `Qrcode` 是python的一个库,用于生成QR码。使用Qrcode之前首先得安装python,然后配置好环境变量之后使用`pip install Qrcode`安装Qrcode,
+ <span class="span">`Qrcode` 是python的一个库,用于生成QR码。使用Qrcode之前首先得安装python,然后配置好环境变量之后使用`pip install Qrcode`安装Qrcode,
  由于生成Qrcode图片需要依赖Python图片库,所以还得使用`pip install image`安装图片库,不然会报"ImportError: No module named Image" 错误.
- 下载好之后就可以在终端使用qr命令生成二维码了
+ 下载好之后就可以在终端使用qr命令生成二维码了</span>
  {% highlight ruby %}
  qr "Just a test" >test.jpg
  qr --help
